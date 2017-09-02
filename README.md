@@ -1,28 +1,27 @@
 # FirebaseSocialauth
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
+This is a small experimental app I'm using to workout implementation of social auth in FirebaseAngular2 given the latest updates to the framework.
 
-## Development server
+References:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[AngularFire2 4.0 differences](https://github.com/angular/angularfire2/blob/master/docs/version-4-upgrade.md)
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Rough Notes on Steps
+1. npm install boostrap etc.
+1. setup bootstrap 4 alpha (beta throwing webpack errors) as per my blog [post](http://flagonwiththedragon.com/2017-08-25-angular-cli-and-bootstrap-4-scss-again/).
+1. Generate an auth service and login component.
+1. Add some basic routes for a login and add router-outlet to the app.component.html
+1. npm install firebase and flashmessage via `npm install angular2-flash-messages angularfire2 firebase --save`
+1. Import and configure in `app.module.ts`
+    1. Add a const called firebaseConfig and copy in settings from firebase project.
+    1. Import AngularFireModule firebaseConfig.
+    1. Pass firebaseConfig to Add AuthService in imports via `AngularFireModule.initializeApp(firebaseConfig),`
+    1. Add FlashMessagesModule to imports (for that)
+1.  Setup Firebase
+    1.  Start a new (or use an old) firebase project.
+    1.  Enable Google under Authentication.
+    1. Go back to 'overview' and get config by clicking on "Add Firebase to your web app"
+    1. Copy settings variables and put them in the firebaseConfig in `app.module.ts`
+1.  See login user compoenent for how to do a basic login.
+    1.  note the constructor subscribing to the authstate of the users if you want an example of reading that in your app.
+    
