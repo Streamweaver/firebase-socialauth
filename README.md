@@ -6,7 +6,7 @@ References:
 
 [AngularFire2 4.0 differences](https://github.com/angular/angularfire2/blob/master/docs/version-4-upgrade.md)
 
-Rough Notes on Steps
+## Rough Notes on Steps
 1. npm install boostrap etc.
 1. setup bootstrap 4 alpha (beta throwing webpack errors) as per my blog [post](http://flagonwiththedragon.com/2017-08-25-angular-cli-and-bootstrap-4-scss-again/).
 1. Generate an auth service and login component.
@@ -25,3 +25,6 @@ Rough Notes on Steps
 1.  See login user compoenent for how to do a basic login.
     1.  note the constructor subscribing to the authstate of the users if you want an example of reading that in your app.
     
+## ToTry out
+1.  Note the environment import method in the difference example and try that to import firebase config.
+1.  Try a couple of social auth methods.
